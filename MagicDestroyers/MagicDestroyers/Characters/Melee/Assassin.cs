@@ -2,8 +2,8 @@
 using MagicDestroyers.Equipment.Weapons;
 using System;
 
-namespace MagicDestroyers.Characters.Melee
-{
+namespace Characters.Melee
+{    
     public class Assassin
     {
         private int level;
@@ -16,12 +16,12 @@ namespace MagicDestroyers.Characters.Melee
 
         public int Level
         {
-            get => level;
+            get => this.level;
             set
             {
                 if (value > 0)
                 {
-                    level = value;
+                    this.level = value;
                 }
                 else
                 {
@@ -29,31 +29,29 @@ namespace MagicDestroyers.Characters.Melee
                 }
             }
         }
-
         public int AbilityPoints
         {
-            get => abilityPoints;
-            set
-            {
-                if (value >= 15 && value <= 20)
-                {
-                    abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Assassins must have Ability points between 15 and 20.");
-                }
-            }
-        }
-
-        public int HealthPoints
-        {
-            get => healthPoints;
+            get => this.abilityPoints;
             set
             {
                 if (value > 0)
                 {
-                    healthPoints = value;
+                    this.abilityPoints = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Ability points must be greater than 0.");
+                }
+            }
+        }
+        public int HealthPoints
+        {
+            get => this.healthPoints;
+            set
+            {
+                if (value > 0)
+                {
+                    this.healthPoints = value;
                 }
                 else
                 {
@@ -61,10 +59,9 @@ namespace MagicDestroyers.Characters.Melee
                 }
             }
         }
-
         public string Name
         {
-            get => name;
+            get => this.name;
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -77,14 +74,13 @@ namespace MagicDestroyers.Characters.Melee
                 }
                 else
                 {
-                    name = value;
+                    this.name = value;
                 }
             }
         }
-
         public string Faction
         {
-            get => faction;
+            get => this.faction;
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -97,24 +93,41 @@ namespace MagicDestroyers.Characters.Melee
                 }
                 else
                 {
-                    faction = value;
+                    this.faction = value;
                 }
             }
         }
-
         public LightLeatherVest BodyArmor
         {
-            get => bodyArmor;
-            set => bodyArmor = value;
+            get => this.bodyArmor;
+            set => this.bodyArmor = value;
         }
-
         public Sword Weapon
         {
-            get => weapon;
-            set => weapon = value;
+            get => this.weapon;
+            set => this.weapon = value;
         }
 
-        public Assassin() { }
+        public Assassin()
+            : this("Dark Ninja", 1)
+        {
+        }
+
+        public Assassin(string name, int level)
+            : this(name, level, 500)
+        {
+        }
+
+        public Assassin(string name, int level, int healthPoints)
+        {
+            this.level = level;
+            this.abilityPoints = 100;
+            this.healthPoints = healthPoints;
+            this.name = name;
+            this.faction = "Melee";
+            this.bodyArmor = new LightLeatherVest();
+            this.weapon = new Sword();
+        }
 
         public void Raze() { }
         public void BleedToDeath() { }

@@ -8,12 +8,12 @@ namespace MagicDestroyers.Equipment.Armors
 
         public int ArmorPoints
         {
-            get => armorPoints;
+            get => this.armorPoints;
             set
             {
                 if (value > 0)
                 {
-                    armorPoints = value;
+                    this.armorPoints = value;
                 }
                 else
                 {

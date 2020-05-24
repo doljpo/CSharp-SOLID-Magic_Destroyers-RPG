@@ -8,12 +8,12 @@ namespace MagicDestroyers.Equipment.Weapons
 
         public int Damage
         {
-            get => damage;
+            get => this.damage;
             set
             {
                 if (value > 0)
                 {
-                    damage = value;
+                    this.damage = value;
                 }
                 else
                 {

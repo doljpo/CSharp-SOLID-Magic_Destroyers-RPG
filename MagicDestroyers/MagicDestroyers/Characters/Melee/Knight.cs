@@ -2,7 +2,7 @@
 using MagicDestroyers.Equipment.Weapons;
 using System;
 
-namespace MagicDestroyers.Characters.Melee
+namespace Characters.Melee
 {
     public class Knight
     {
@@ -16,12 +16,12 @@ namespace MagicDestroyers.Characters.Melee
 
         public int Level
         {
-            get => level;
+            get => this.level;
             set
             {
                 if (value > 0)
                 {
-                    level = value;
+                    this.level = value;
                 }
                 else
                 {
@@ -29,15 +29,14 @@ namespace MagicDestroyers.Characters.Melee
                 }
             }
         }
-
         public int AbilityPoints
         {
-            get => abilityPoints;
+            get => this.abilityPoints;
             set
             {
                 if (value >= 8 && value <= 12)
                 {
-                    abilityPoints = value;
+                    this.abilityPoints = value;
                 }
                 else
                 {
@@ -45,15 +44,14 @@ namespace MagicDestroyers.Characters.Melee
                 }
             }
         }
-
         public int HealthPoints
         {
-            get => healthPoints;
+            get => this.healthPoints;
             set
             {
                 if (value > 0)
                 {
-                    healthPoints = value;
+                    this.healthPoints = value;
                 }
                 else
                 {
@@ -61,10 +59,9 @@ namespace MagicDestroyers.Characters.Melee
                 }
             }
         }
-
         public string Name
         {
-            get => name;
+            get => this.name;
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -77,14 +74,13 @@ namespace MagicDestroyers.Characters.Melee
                 }
                 else
                 {
-                    name = value;
+                    this.name = value;
                 }
             }
         }
-
         public string Faction
         {
-            get => faction;
+            get => this.faction;
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -97,23 +93,41 @@ namespace MagicDestroyers.Characters.Melee
                 }
                 else
                 {
-                    faction = value;
+                    this.faction = value;
                 }
             }
         }
-
         public Chainlink BodyArmor
         {
-            get => bodyArmor;
-            set => bodyArmor = value;
+            get => this.bodyArmor;
+            set => this.bodyArmor = value;
         }
-
         public Hammer Weapon
         {
-            get => weapon;
-            set => weapon = value;
+            get => this.weapon;
+            set => this.weapon = value;
         }
-        public Knight() { }
+
+        public Knight()
+            : this("Holy Knight", 1)
+        {
+        }
+
+        public Knight(string name, int level)
+            : this(name, level, 500)
+        {
+        }
+
+        public Knight(string name, int level, int healthPoints)
+        {
+            this.level = level;
+            this.abilityPoints = 100;
+            this.healthPoints = healthPoints;
+            this.name = name;
+            this.faction = "Melee";
+            this.bodyArmor = new Chainlink();
+            this.weapon = new Hammer();
+        }
 
         public void HolyBlow() { }
         public void PurifySoul() { }
