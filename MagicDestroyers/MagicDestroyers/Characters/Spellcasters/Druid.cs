@@ -1,16 +1,23 @@
-﻿using MagicDestroyers.Equipment.Armors;
-using MagicDestroyers.Equipment.Weapons;
+﻿using Enums;
+using Equipment.Armors;
+using Equipment.Weapons;
 using System;
 
 namespace Characters.Spellcasters
 {
     public class Druid
     {
+        private const string DEFAULT_NAME = "Wise Druid";
+        private const int DEFAULT_LEVEL = 1;
+        private const int DEFAULT_HEALTH_POINTS = 500;
+        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
+
         private int level;
         private int abilityPoints;
         private int healthPoints;
         private string name;
-        private string faction;
+        private Faction faction;
         public LightLeatherVest bodyArmor;
         public Staff weapon;
 
@@ -78,24 +85,10 @@ namespace Characters.Spellcasters
                 }
             }
         }
-        public string Faction
+        public Faction Faction
         {
             get => this.faction;
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("The character needs a faction.");
-                }
-                else if (value.Trim() != "Melee" && value.Trim() != "Spellcaster")
-                {
-                    throw new ArgumentOutOfRangeException("Faction must be 'Melee' or 'Spellcaster'");
-                }
-                else
-                {
-                    this.faction = value;
-                }
-            }
+            set => this.faction = value;
         }
         public LightLeatherVest BodyArmor
         {
@@ -109,22 +102,22 @@ namespace Characters.Spellcasters
         }
 
         public Druid()
-            : this("Wise Druid", 1)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
         }
 
         public Druid(string name, int level)
-            : this(name, level, 500)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
         }
 
         public Druid(string name, int level, int healthPoints)
         {
-            this.level = level;
-            this.abilityPoints = 100;
-            this.healthPoints = healthPoints;
             this.name = name;
-            this.faction = "Spellcaster";
+            this.level = level;
+            this.healthPoints = healthPoints;
+            this.abilityPoints = DEFAULT_ABILITY_POINTS;
+            this.faction = DEFAULT_FACTION;
             this.bodyArmor = new LightLeatherVest();
             this.weapon = new Staff();
         }

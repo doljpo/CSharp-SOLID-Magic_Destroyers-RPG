@@ -50,6 +50,7 @@
     <Compile Include="Characters\Spellcasters\Druid.cs" />
     <Compile Include="Characters\Spellcasters\Mage.cs" />
     <Compile Include="Characters\Spellcasters\Necromancer.cs" />
+    <Compile Include="Enums\Faction.cs" />
     <Compile Include="Equipment\Armors\Chainlink.cs" />
     <Compile Include="Equipment\Armors\ClothRobe.cs" />
     <Compile Include="Equipment\Armors\LightLeatherVest.cs" />

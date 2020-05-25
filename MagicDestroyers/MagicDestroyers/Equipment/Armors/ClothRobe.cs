@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MagicDestroyers.Equipment.Armors
+namespace Equipment.Armors
 {
     public class ClothRobe
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MagicDestroyers.Equipment.Weapons
+namespace Equipment.Weapons
 {
     public class Staff
     {
