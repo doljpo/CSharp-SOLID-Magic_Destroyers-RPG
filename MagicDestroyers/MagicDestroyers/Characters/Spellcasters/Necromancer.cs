@@ -11,13 +11,8 @@ namespace Characters.Spellcasters
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTH_POINTS = 500;
         private const int DEFAULT_ABILITY_POINTS = 100;
-        private const Faction DEFAULT_FACTION = Faction.Spellcaster;
 
-        private int level;
         private int abilityPoints;
-        private int healthPoints;
-        private string name;
-        private Faction faction;
         public LightLeatherVest bodyArmor;
         public Sword weapon;
 
@@ -43,12 +38,9 @@ namespace Characters.Spellcasters
         }
 
         public Necromancer(string name, int level, int healthPoints)
+            : base(name, level, healthPoints)
         {
-            this.name = name;
-            this.level = level;
-            this.healthPoints = healthPoints;
             this.abilityPoints = DEFAULT_ABILITY_POINTS;
-            this.faction = DEFAULT_FACTION;
             this.bodyArmor = new LightLeatherVest();
             this.weapon = new Sword();
         }
