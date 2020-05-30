@@ -1,7 +1,5 @@
-﻿using Enums;
-using Equipment.Armors;
+﻿using Equipment.Armors;
 using Equipment.Weapons;
-using System;
 
 namespace Characters.Melee
 {
@@ -11,9 +9,7 @@ namespace Characters.Melee
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTH_POINTS = 500;
         private const int DEFAULT_ABILITY_POINTS = 100;
-        private const Faction DEFAULT_FACTION = Faction.Melee;
 
-        private int abilityPoints;
         public LightLeatherVest bodyArmor;
         public Sword weapon;
 
@@ -39,9 +35,8 @@ namespace Characters.Melee
         }
 
         public Assassin(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, DEFAULT_FACTION)
+            : base(name, level, healthPoints, DEFAULT_ABILITY_POINTS)
         {
-            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
             this.BodyArmor = new LightLeatherVest();
             this.Weapon = new Sword();
         }

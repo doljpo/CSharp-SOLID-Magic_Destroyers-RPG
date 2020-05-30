@@ -1,7 +1,5 @@
-﻿using Enums;
-using Equipment.Armors;
+﻿using Equipment.Armors;
 using Equipment.Weapons;
-using System;
 
 namespace Characters.Melee
 {
@@ -11,9 +9,7 @@ namespace Characters.Melee
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTH_POINTS = 500;
         private const int DEFAULT_ABILITY_POINTS = 100;
-        private const Faction DEFAULT_FACTION = Faction.Melee;
 
-        private int abilityPoints;
         public Chainlink bodyArmor;
         public Axe weapon;
 
@@ -39,11 +35,10 @@ namespace Characters.Melee
         }
 
         public Warrior(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, DEFAULT_FACTION)
+            : base(name, level, healthPoints, DEFAULT_ABILITY_POINTS)
         {
-            this.abilityPoints = DEFAULT_ABILITY_POINTS;
-            this.bodyArmor = new Chainlink();
-            this.weapon = new Axe();
+            this.BodyArmor = new Chainlink();
+            this.Weapon = new Axe();
         }
 
         public void Strike() { }

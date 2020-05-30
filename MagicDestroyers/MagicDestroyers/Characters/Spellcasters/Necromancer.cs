@@ -1,7 +1,5 @@
-﻿using Enums;
-using Equipment.Armors;
+﻿using Equipment.Armors;
 using Equipment.Weapons;
-using System;
 
 namespace Characters.Spellcasters
 {
@@ -10,9 +8,8 @@ namespace Characters.Spellcasters
         private const string DEFAULT_NAME = "Unholy Necromancer";
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTH_POINTS = 500;
-        private const int DEFAULT_ABILITY_POINTS = 100;
+        private const int DEFAULT_MANA_POINTS = 100;
 
-        private int abilityPoints;
         public LightLeatherVest bodyArmor;
         public Sword weapon;
 
@@ -38,11 +35,10 @@ namespace Characters.Spellcasters
         }
 
         public Necromancer(string name, int level, int healthPoints)
-            : base(name, level, healthPoints)
+            : base(name, level, healthPoints, DEFAULT_MANA_POINTS)
         {
-            this.abilityPoints = DEFAULT_ABILITY_POINTS;
-            this.bodyArmor = new LightLeatherVest();
-            this.weapon = new Sword();
+            this.BodyArmor = new LightLeatherVest();
+            this.Weapon = new Sword();
         }
 
         public void ShadowRage() { }

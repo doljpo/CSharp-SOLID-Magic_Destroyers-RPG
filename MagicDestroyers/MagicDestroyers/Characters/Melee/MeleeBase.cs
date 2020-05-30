@@ -1,17 +1,13 @@
-﻿using Characters;
-using Enums;
+﻿using Enums;
 using System;
 
 namespace Characters.Melee
 {
     public class MeleeBase : Character
     {
-        private int abilityPoints;
+        private const int DEFAULT_ABILITY_POINTS = 100;
 
-        public MeleeBase(string name, int level, int healthPoints, Faction faction) 
-            : base(name, level, healthPoints, faction)
-        {
-        }
+        private int abilityPoints;
 
         public int AbilityPoints
         {
@@ -27,6 +23,12 @@ namespace Characters.Melee
                     throw new ArgumentException("Ability points must be greater than 0.");
                 }
             }
+        }
+
+        public MeleeBase(string name, int level, int healthPoints, int abilityPoints)
+            : base(name, level, healthPoints, Faction.Melee)
+        {
+            this.AbilityPoints = abilityPoints;
         }
     }
 }

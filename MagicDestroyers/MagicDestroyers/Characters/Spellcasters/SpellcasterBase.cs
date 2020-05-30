@@ -12,20 +12,21 @@ namespace Characters.Spellcasters
             get => this.manaPoints;
             set
             {
-                if (value >= 8 && value <= 12)
+                if (value > 0)
                 {
                     this.manaPoints = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Spellcasters must have Mana points between 18 and 25.");
+                    throw new ArgumentException("Mana points must be greater than 0.");
                 }
             }
         }
 
-        public SpellcasterBase(string name, int level, int healthPoints)
+        public SpellcasterBase(string name, int level, int healthPoints, int manaPoints)
             : base(name, level, healthPoints, Faction.Spellcaster)
         {
+            this.ManaPoints = manaPoints;
         }
     }
 }
