@@ -5,7 +5,7 @@ using System;
 
 namespace Characters.Spellcasters
 {
-    public class Necromancer
+    public class Necromancer : SpellcasterBase
     {
         private const string DEFAULT_NAME = "Unholy Necromancer";
         private const int DEFAULT_LEVEL = 1;
@@ -21,75 +21,6 @@ namespace Characters.Spellcasters
         public LightLeatherVest bodyArmor;
         public Sword weapon;
 
-        public int Level
-        {
-            get => this.level;
-            set
-            {
-                if (value > 0)
-                {
-                    this.level = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Level must be greater than 0.");
-                }
-            }
-        }
-        public int AbilityPoints
-        {
-            get => this.abilityPoints;
-            set
-            {
-                if (value >= 8 && value <= 12)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Necromancers must have Ability points between 20 and 30.");
-                }
-            }
-        }
-        public int HealthPoints
-        {
-            get => this.healthPoints;
-            set
-            {
-                if (value > 0)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Health points must be greater than 0.");
-                }
-            }
-        }
-        public string Name
-        {
-            get => this.name;
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("The character needs a name.");
-                }
-                else if (value.Trim().Length < 2 || value.Trim().Length > 10)
-                {
-                    throw new ArgumentOutOfRangeException("Names must have between 2 and 20 caracters long.");
-                }
-                else
-                {
-                    this.name = value;
-                }
-            }
-        }
-        public Faction Faction
-        {
-            get => this.faction;
-            set => this.faction = value;
-        }
         public LightLeatherVest BodyArmor
         {
             get => this.bodyArmor;

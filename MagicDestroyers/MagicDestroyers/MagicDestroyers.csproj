@@ -44,12 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Characters\Character.cs" />
     <Compile Include="Characters\Melee\Assassin.cs" />
     <Compile Include="Characters\Melee\Knight.cs" />
+    <Compile Include="Characters\Melee\MeleeBase.cs" />
     <Compile Include="Characters\Melee\Warrior.cs" />
     <Compile Include="Characters\Spellcasters\Druid.cs" />
     <Compile Include="Characters\Spellcasters\Mage.cs" />
     <Compile Include="Characters\Spellcasters\Necromancer.cs" />
+    <Compile Include="Characters\Spellcasters\SpellcasterBase.cs" />
     <Compile Include="Enums\Faction.cs" />
     <Compile Include="Equipment\Armors\Chainlink.cs" />
     <Compile Include="Equipment\Armors\ClothRobe.cs" />

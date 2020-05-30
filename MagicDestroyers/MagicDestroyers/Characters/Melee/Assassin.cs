@@ -5,7 +5,7 @@ using System;
 
 namespace Characters.Melee
 {
-    public class Assassin
+    public class Assassin : MeleeBase
     {
         private const string DEFAULT_NAME = "Dark Ninja";
         private const int DEFAULT_LEVEL = 1;
@@ -13,83 +13,10 @@ namespace Characters.Melee
         private const int DEFAULT_ABILITY_POINTS = 100;
         private const Faction DEFAULT_FACTION = Faction.Melee;
 
-        private int level;
         private int abilityPoints;
-        private int healthPoints;
-        private string name;
-        private Faction faction;
         public LightLeatherVest bodyArmor;
         public Sword weapon;
 
-        public int Level
-        {
-            get => this.level;
-            set
-            {
-                if (value > 0)
-                {
-                    this.level = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Level must be greater than 0.");
-                }
-            }
-        }
-        public int AbilityPoints
-        {
-            get => this.abilityPoints;
-            set
-            {
-                if (value > 0)
-                {
-                    this.abilityPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Ability points must be greater than 0.");
-                }
-            }
-        }
-        public int HealthPoints
-        {
-            get => this.healthPoints;
-            set
-            {
-                if (value > 0)
-                {
-                    this.healthPoints = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Health points must be greater than 0.");
-                }
-            }
-        }
-        public string Name
-        {
-            get => this.name;
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("The character needs a name.");
-                }
-                else if (value.Trim().Length < 2 || value.Trim().Length > 10)
-                {
-                    throw new ArgumentOutOfRangeException("Names must have between 2 and 20 caracters long.");
-                }
-                else
-                {
-                    this.name = value;
-                }
-            }
-        }
-        public Faction Faction
-        {
-            get => this.faction;
-            set => this.faction = value;
-        }
         public LightLeatherVest BodyArmor
         {
             get => this.bodyArmor;
@@ -112,14 +39,11 @@ namespace Characters.Melee
         }
 
         public Assassin(string name, int level, int healthPoints)
+            : base(name, level, healthPoints, DEFAULT_FACTION)
         {
-            this.name = name;
-            this.level = level;
-            this.healthPoints = healthPoints;
-            this.abilityPoints = DEFAULT_ABILITY_POINTS;
-            this.faction = DEFAULT_FACTION;
-            this.bodyArmor = new LightLeatherVest();
-            this.weapon = new Sword();
+            this.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            this.BodyArmor = new LightLeatherVest();
+            this.Weapon = new Sword();
         }
 
         public void Raze() { }
