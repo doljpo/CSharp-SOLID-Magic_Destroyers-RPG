@@ -11,7 +11,7 @@ namespace Equipment.Weapons
             get => this.damage;
             set
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     this.damage = value;
                 }

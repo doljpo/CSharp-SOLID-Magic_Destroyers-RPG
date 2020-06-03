@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\Interfaces\IAttacking.cs" />
+    <Compile Include="Characters\Interfaces\IDefending.cs" />
     <Compile Include="Characters\Melee\Assassin.cs" />
     <Compile Include="Characters\Melee\Knight.cs" />
     <Compile Include="Characters\Melee\MeleeBase.cs" />

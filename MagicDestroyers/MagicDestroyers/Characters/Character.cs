@@ -1,9 +1,10 @@
-﻿using Enums;
+﻿using Characters.Interfaces;
+using Enums;
 using System;
 
 namespace Characters
 {
-    public class Character
+    public abstract class Character: IAttacking, IDefending
     {
         private int level;
         private int healthPoints;
@@ -75,5 +76,9 @@ namespace Characters
             this.HealthPoints = healthPoints;
             this.Faction = faction;
         }
+
+        public abstract void Attack();
+        public abstract void SpecialAttack();
+        public abstract void Defend();
     }
 }
