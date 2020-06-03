@@ -1,5 +1,5 @@
-﻿using Equipment.Armors;
-using Equipment.Weapons;
+﻿using Equipment.Armors.Heavy;
+using Equipment.Weapons.Sharp;
 
 namespace Characters.Melee
 {

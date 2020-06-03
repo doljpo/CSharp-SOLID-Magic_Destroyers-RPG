@@ -54,18 +54,27 @@
     <Compile Include="Characters\Spellcasters\Necromancer.cs" />
     <Compile Include="Characters\Spellcasters\SpellcasterBase.cs" />
     <Compile Include="Enums\Faction.cs" />
-    <Compile Include="Equipment\Armors\Chainlink.cs" />
-    <Compile Include="Equipment\Armors\ClothRobe.cs" />
-    <Compile Include="Equipment\Armors\LightLeatherVest.cs" />
-    <Compile Include="Equipment\Weapons\Axe.cs" />
-    <Compile Include="Equipment\Weapons\Hammer.cs" />
-    <Compile Include="Equipment\Weapons\Staff.cs" />
-    <Compile Include="Equipment\Weapons\Sword.cs" />
+    <Compile Include="Equipment\Armors\Armor.cs" />
+    <Compile Include="Equipment\Armors\Cloth\Cloth.cs" />
+    <Compile Include="Equipment\Armors\Heavy\Chainlink.cs" />
+    <Compile Include="Equipment\Armors\Cloth\ClothRobe.cs" />
+    <Compile Include="Equipment\Armors\Heavy\Heavy.cs" />
+    <Compile Include="Equipment\Armors\Light\Light.cs" />
+    <Compile Include="Equipment\Armors\Light\LightLeatherVest.cs" />
+    <Compile Include="Equipment\Weapons\Blunt\Blunt.cs" />
+    <Compile Include="Equipment\Weapons\Sharp\Axe.cs" />
+    <Compile Include="Equipment\Weapons\Blunt\Hammer.cs" />
+    <Compile Include="Equipment\Weapons\Sharp\Sharp.cs" />
+    <Compile Include="Equipment\Weapons\Blunt\Staff.cs" />
+    <Compile Include="Equipment\Weapons\Sharp\Sword.cs" />
+    <Compile Include="Equipment\Weapons\Weapon.cs" />
+    <Compile Include="Player\PlayersInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

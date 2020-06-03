@@ -2,7 +2,7 @@
 
 namespace Equipment.Armors
 {
-    public class LightLeatherVest
+    public class Armor
     {
         private int armorPoints;
 
@@ -11,7 +11,7 @@ namespace Equipment.Armors
             get => this.armorPoints;
             set
             {
-                if (value > 0)
+                if (value >= 0)
                 {
                     this.armorPoints = value;
                 }
@@ -21,7 +21,5 @@ namespace Equipment.Armors
                 }
             }
         }
-
-        public LightLeatherVest() { }
     }
 }

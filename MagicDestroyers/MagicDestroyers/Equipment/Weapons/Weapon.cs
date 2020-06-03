@@ -2,7 +2,7 @@
 
 namespace Equipment.Weapons
 {
-    public class Staff
+    public class Weapon
     {
         private int damage;
 
@@ -21,9 +21,5 @@ namespace Equipment.Weapons
                 }
             }
         }
-
-        public Staff() { }
-
-        public void Empower() { }
     }
 }

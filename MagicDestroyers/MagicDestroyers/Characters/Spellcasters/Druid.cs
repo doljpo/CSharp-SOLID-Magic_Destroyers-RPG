@@ -1,5 +1,5 @@
-﻿using Equipment.Armors;
-using Equipment.Weapons;
+﻿using Equipment.Armors.Light;
+using Equipment.Weapons.Blunt;
 
 namespace Characters.Spellcasters
 {
