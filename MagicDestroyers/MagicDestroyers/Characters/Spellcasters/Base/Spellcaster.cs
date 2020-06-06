@@ -1,4 +1,6 @@
 ﻿using Enums;
+using Equipment.Armors;
+using Equipment.Weapons;
 using System;
 
 namespace Characters.Spellcasters
@@ -6,6 +8,8 @@ namespace Characters.Spellcasters
     public class Spellcaster : Character
     {
         private int manaPoints;
+        private Armor armor;
+        private Weapon weapon;
 
         public int ManaPoints
         {
@@ -21,6 +25,16 @@ namespace Characters.Spellcasters
                     throw new ArgumentException("Mana points must be greater than 0.");
                 }
             }
+        }
+        public Armor Armor
+        {
+            get => this.armor;
+            set => this.armor = value;
+        }
+        public Weapon Weapon
+        {
+            get => this.weapon;
+            set => this.weapon = value;
         }
 
         public Spellcaster(string name, int level, int healthPoints, int manaPoints)

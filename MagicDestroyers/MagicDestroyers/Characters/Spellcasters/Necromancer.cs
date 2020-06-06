@@ -10,20 +10,6 @@ namespace Characters.Spellcasters
         private const int DEFAULT_HEALTH_POINTS = 500;
         private const int DEFAULT_MANA_POINTS = 100;
 
-        public LightLeatherVest bodyArmor;
-        public Sword weapon;
-
-        public LightLeatherVest BodyArmor
-        {
-            get => this.bodyArmor;
-            set => this.bodyArmor = value;
-        }
-        public Sword Weapon
-        {
-            get => this.weapon;
-            set => this.weapon = value;
-        }
-
         public Necromancer()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -37,8 +23,8 @@ namespace Characters.Spellcasters
         public Necromancer(string name, int level, int healthPoints)
             : base(name, level, healthPoints, DEFAULT_MANA_POINTS)
         {
-            this.BodyArmor = new LightLeatherVest();
-            this.Weapon = new Sword();
+            base.Armor = new LightLeatherVest();
+            base.Weapon = new Sword();
         }
 
         public override void Attack()
@@ -56,7 +42,10 @@ namespace Characters.Spellcasters
             this.BoneShield();
         }
 
-        private void ShadowRage() { }
+        private void ShadowRage()
+        {
+            System.Console.WriteLine("Shadow Rage!!");
+        }
         private void VampireTouch() { }
         private void BoneShield() { }
     }

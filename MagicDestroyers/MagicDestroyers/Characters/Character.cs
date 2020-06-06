@@ -50,7 +50,7 @@ namespace Characters
                 {
                     throw new ArgumentException("The character needs a name.");
                 }
-                else if (value.Trim().Length < 2 || value.Trim().Length > 10)
+                else if (value.Trim().Length < 2 || value.Trim().Length > 20)
                 {
                     throw new ArgumentOutOfRangeException("Names must have between 2 and 20 caracters long.");
                 }

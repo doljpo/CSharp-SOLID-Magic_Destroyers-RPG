@@ -1,4 +1,5 @@
-﻿using Equipment.Armors.Heavy;
+﻿using Equipment.Armors;
+using Equipment.Armors.Heavy;
 using Equipment.Weapons.Blunt;
 
 namespace Characters.Melee
@@ -9,20 +10,6 @@ namespace Characters.Melee
         private const int DEFAULT_LEVEL = 1;
         private const int DEFAULT_HEALTH_POINTS = 500;
         private const int DEFAULT_ABILITY_POINTS = 100;
-
-        public Chainlink bodyArmor;
-        public Hammer weapon;
-
-        public Chainlink BodyArmor
-        {
-            get => this.bodyArmor;
-            set => this.bodyArmor = value;
-        }
-        public Hammer Weapon
-        {
-            get => this.weapon;
-            set => this.weapon = value;
-        }
 
         public Knight()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
@@ -37,8 +24,8 @@ namespace Characters.Melee
         public Knight(string name, int level, int healthPoints)
             : base(name, level, healthPoints, DEFAULT_ABILITY_POINTS)
         {
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Hammer();
+            base.Armor = new Chainlink();
+            base.Weapon = new Hammer();
         }
 
         public override void Attack()

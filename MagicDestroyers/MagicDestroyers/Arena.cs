@@ -27,6 +27,10 @@ namespace MagicDestroyers
             spellcasterTeam.Add(druid);
             spellcasterTeam.Add(mage);
             spellcasterTeam.Add(necromancer);
+
+            spellcasterTeam[2].Attack();
+
+            System.Console.ReadKey();
         }
     }
 }

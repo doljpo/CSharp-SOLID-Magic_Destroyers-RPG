@@ -10,20 +10,6 @@ namespace Characters.Melee
         private const int DEFAULT_HEALTH_POINTS = 500;
         private const int DEFAULT_ABILITY_POINTS = 100;
 
-        public Chainlink bodyArmor;
-        public Axe weapon;
-
-        public Chainlink BodyArmor
-        {
-            get => this.bodyArmor;
-            set => this.bodyArmor = value;
-        }
-        public Axe Weapon
-        {
-            get => this.weapon;
-            set => this.weapon = value;
-        }
-
         public Warrior()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -37,8 +23,8 @@ namespace Characters.Melee
         public Warrior(string name, int level, int healthPoints)
             : base(name, level, healthPoints, DEFAULT_ABILITY_POINTS)
         {
-            this.BodyArmor = new Chainlink();
-            this.Weapon = new Axe();
+            base.Armor = new Chainlink();
+            base.Weapon = new Axe();
         }
 
         public override void Attack()

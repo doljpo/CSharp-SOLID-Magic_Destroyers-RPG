@@ -1,4 +1,6 @@
 ﻿using Enums;
+using Equipment.Armors;
+using Equipment.Weapons;
 using System;
 
 namespace Characters.Melee
@@ -8,6 +10,8 @@ namespace Characters.Melee
         private const int DEFAULT_ABILITY_POINTS = 100;
 
         private int abilityPoints;
+        private Armor armor;
+        private Weapon weapon;
 
         public int AbilityPoints
         {
@@ -23,6 +27,16 @@ namespace Characters.Melee
                     throw new ArgumentException("Ability points must be greater than 0.");
                 }
             }
+        }
+        public Armor Armor
+        {
+            get => this.armor;
+            set => this.armor = value;
+        }
+        public Weapon Weapon
+        {
+            get => this.weapon;
+            set => this.weapon = value;
         }
 
         public Melee(string name, int level, int healthPoints, int abilityPoints)
