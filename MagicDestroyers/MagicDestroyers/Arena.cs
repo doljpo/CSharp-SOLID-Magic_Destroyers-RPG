@@ -1,4 +1,5 @@
-﻿using Characters.Melee;
+﻿using Characters;
+using Characters.Melee;
 using Characters.Spellcasters;
 using System.Collections.Generic;
 
@@ -8,29 +9,50 @@ namespace MagicDestroyers
     {
         static void Main(string[] args)
         {
-            // Melee Team
-            Melee assassin = new Assassin();
-            Melee knight = new Knight();
-            Melee warrior = new Warrior();
+            var meleeTeam = new List<Melee>();
+            var spellcastersTeam = new List<Spellcaster>();
 
-            List<Melee> meleeTeam = new List<Melee>();
-            meleeTeam.Add(assassin);
-            meleeTeam.Add(knight);
-            meleeTeam.Add(warrior);
+            foreach (var character in GetCharacters())
+            {                
+                if (character is Melee)
+                {
+                    meleeTeam.Add((Melee)character);
+                }
+                else
+                {
+                    spellcastersTeam.Add((Spellcaster)character);
+                }
+            }
 
-            // Spellcaster Team
-            Spellcaster druid = new Druid();
-            Spellcaster mage = new Mage();
-            Spellcaster necromancer = new Necromancer();
+            System.Console.WriteLine("Melee Team");
+            System.Console.WriteLine("----------");
+            foreach (var melee in meleeTeam)
+            {
+                System.Console.WriteLine(" > " + melee.Name);
+            }
 
-            List<Spellcaster> spellcasterTeam = new List<Spellcaster>();
-            spellcasterTeam.Add(druid);
-            spellcasterTeam.Add(mage);
-            spellcasterTeam.Add(necromancer);
-
-            spellcasterTeam[2].Attack();
+            System.Console.WriteLine("");
+            System.Console.WriteLine("Spellcasters Team");
+            System.Console.WriteLine("-----------------");
+            foreach (var spellcaster in spellcastersTeam)
+            {
+                System.Console.WriteLine(" > " + spellcaster.Name);
+            }
 
             System.Console.ReadKey();
+        }
+
+        private static List<Character> GetCharacters()
+        {
+            return new List<Character>()
+            {
+                new Assassin(),
+                new Druid(),
+                new Knight(),
+                new Mage(),
+                new Necromancer(),
+                new Warrior()
+            };
         }
     }
 }
