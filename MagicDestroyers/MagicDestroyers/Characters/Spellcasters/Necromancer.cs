@@ -3,7 +3,7 @@ using Equipment.Weapons.Sharp;
 
 namespace Characters.Spellcasters
 {
-    public class Necromancer : SpellcasterBase
+    public class Necromancer : Spellcaster
     {
         private const string DEFAULT_NAME = "Unholy Necromancer";
         private const int DEFAULT_LEVEL = 1;
@@ -41,8 +41,23 @@ namespace Characters.Spellcasters
             this.Weapon = new Sword();
         }
 
-        public void ShadowRage() { }
-        public void VampireTouch() { }
-        public void BoneShield() { }
+        public override void Attack()
+        {
+            this.ShadowRage();
+        }
+
+        public override void SpecialAttack()
+        {
+            this.VampireTouch();
+        }
+
+        public override void Defend()
+        {
+            this.BoneShield();
+        }
+
+        private void ShadowRage() { }
+        private void VampireTouch() { }
+        private void BoneShield() { }
     }
 }

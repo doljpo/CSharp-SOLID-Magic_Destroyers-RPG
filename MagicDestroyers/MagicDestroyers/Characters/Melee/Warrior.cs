@@ -3,7 +3,7 @@ using Equipment.Weapons.Sharp;
 
 namespace Characters.Melee
 {
-    public class Warrior : MeleeBase
+    public class Warrior : Melee
     {
         private const string DEFAULT_NAME = "Brave Warrior";
         private const int DEFAULT_LEVEL = 1;
@@ -41,8 +41,23 @@ namespace Characters.Melee
             this.Weapon = new Axe();
         }
 
-        public void Strike() { }
-        public void Execute() { }
-        public void SkinHarden() { }
+        public override void Attack()
+        {
+            this.Strike();
+        }
+
+        public override void SpecialAttack()
+        {
+            this.Execute();
+        }
+
+        public override void Defend()
+        {
+            this.SkinHarden();
+        }
+
+        private void Strike() { }
+        private void Execute() { }
+        private void SkinHarden() { }
     }
 }

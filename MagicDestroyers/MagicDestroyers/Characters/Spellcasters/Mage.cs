@@ -3,7 +3,7 @@ using Equipment.Weapons.Blunt;
 
 namespace Characters.Spellcasters
 {
-    public class Mage : SpellcasterBase
+    public class Mage : Spellcaster
     {
         private const string DEFAULT_NAME = "Ice Mage";
         private const int DEFAULT_LEVEL = 1;
@@ -41,9 +41,24 @@ namespace Characters.Spellcasters
             this.Weapon = new Staff();
         }
 
-        public void ArcaneWrath() { }
-        public void Firewall() { }
-        public void Meditation() { }
+        public override void Attack()
+        {
+            this.ArcaneWrath();
+        }
+
+        public override void SpecialAttack()
+        {
+            this.Firewall();
+        }
+
+        public override void Defend()
+        {
+            this.Meditation();
+        }
+
+        private void ArcaneWrath() { }
+        private void Firewall() { }
+        private void Meditation() { }
 
     }
 }

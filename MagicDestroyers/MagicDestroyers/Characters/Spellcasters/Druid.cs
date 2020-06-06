@@ -3,7 +3,7 @@ using Equipment.Weapons.Blunt;
 
 namespace Characters.Spellcasters
 {
-    public class Druid : SpellcasterBase
+    public class Druid : Spellcaster
     {
         private const string DEFAULT_NAME = "Wise Druid";
         private const int DEFAULT_LEVEL = 1;
@@ -41,8 +41,23 @@ namespace Characters.Spellcasters
             this.Weapon = new Staff();
         }
 
-        public void Moonfire() { }
-        public void Starburst() { }
-        public void OneWithTheNature() { }
+        public override void Attack()
+        {
+            this.Moonfire();
+        }
+
+        public override void SpecialAttack()
+        {
+            this.Starburst();
+        }
+
+        public override void Defend()
+        {
+            this.OneWithTheNature();
+        }
+
+        private void Moonfire() { }
+        private void Starburst() { }
+        private void OneWithTheNature() { }
     }
 }

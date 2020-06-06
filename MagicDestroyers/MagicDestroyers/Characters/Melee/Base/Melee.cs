@@ -3,7 +3,7 @@ using System;
 
 namespace Characters.Melee
 {
-    public class MeleeBase : Character
+    public class Melee : Character
     {
         private const int DEFAULT_ABILITY_POINTS = 100;
 
@@ -25,7 +25,7 @@ namespace Characters.Melee
             }
         }
 
-        public MeleeBase(string name, int level, int healthPoints, int abilityPoints)
+        public Melee(string name, int level, int healthPoints, int abilityPoints)
             : base(name, level, healthPoints, Faction.Melee)
         {
             this.AbilityPoints = abilityPoints;

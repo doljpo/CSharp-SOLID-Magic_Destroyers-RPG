@@ -49,12 +49,12 @@
     <Compile Include="Characters\Interfaces\IDefending.cs" />
     <Compile Include="Characters\Melee\Assassin.cs" />
     <Compile Include="Characters\Melee\Knight.cs" />
-    <Compile Include="Characters\Melee\MeleeBase.cs" />
+    <Compile Include="Characters\Melee\Base\Melee.cs" />
     <Compile Include="Characters\Melee\Warrior.cs" />
     <Compile Include="Characters\Spellcasters\Druid.cs" />
     <Compile Include="Characters\Spellcasters\Mage.cs" />
     <Compile Include="Characters\Spellcasters\Necromancer.cs" />
-    <Compile Include="Characters\Spellcasters\SpellcasterBase.cs" />
+    <Compile Include="Characters\Spellcasters\Base\Spellcaster.cs" />
     <Compile Include="Enums\Faction.cs" />
     <Compile Include="Equipment\Armors\Armor.cs" />
     <Compile Include="Equipment\Armors\Cloth\Cloth.cs" />

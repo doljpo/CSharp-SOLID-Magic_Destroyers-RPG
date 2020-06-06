@@ -3,7 +3,7 @@ using System;
 
 namespace Characters.Spellcasters
 {
-    public class SpellcasterBase : Character
+    public class Spellcaster : Character
     {
         private int manaPoints;
 
@@ -23,7 +23,7 @@ namespace Characters.Spellcasters
             }
         }
 
-        public SpellcasterBase(string name, int level, int healthPoints, int manaPoints)
+        public Spellcaster(string name, int level, int healthPoints, int manaPoints)
             : base(name, level, healthPoints, Faction.Spellcaster)
         {
             this.ManaPoints = manaPoints;

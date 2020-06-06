@@ -3,7 +3,7 @@ using Equipment.Weapons.Blunt;
 
 namespace Characters.Melee
 {
-    public class Knight : MeleeBase
+    public class Knight : Melee
     {
         private const string DEFAULT_NAME = "Holy Knight";
         private const int DEFAULT_LEVEL = 1;
@@ -41,8 +41,23 @@ namespace Characters.Melee
             this.Weapon = new Hammer();
         }
 
-        public void HolyBlow() { }
-        public void PurifySoul() { }
-        public void RighteousWings() { }
+        public override void Attack()
+        {
+            this.HolyBlow();
+        }
+
+        public override void SpecialAttack()
+        {
+            this.PurifySoul();
+        }
+
+        public override void Defend()
+        {
+            this.RighteousWings();
+        }
+
+        private void HolyBlow() { }
+        private void PurifySoul() { }
+        private void RighteousWings() { }
     }
 }

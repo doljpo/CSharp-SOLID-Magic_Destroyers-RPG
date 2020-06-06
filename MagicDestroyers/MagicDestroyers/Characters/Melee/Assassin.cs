@@ -3,7 +3,7 @@ using Equipment.Weapons.Sharp;
 
 namespace Characters.Melee
 {
-    public class Assassin : MeleeBase
+    public class Assassin : Melee
     {
         private const string DEFAULT_NAME = "Dark Ninja";
         private const int DEFAULT_LEVEL = 1;
@@ -41,8 +41,23 @@ namespace Characters.Melee
             this.Weapon = new Sword();
         }
 
-        public void Raze() { }
-        public void BleedToDeath() { }
-        public void Survival() { }
+        public override void Attack()
+        {
+            this.Raze();
+        }
+
+        public override void SpecialAttack()
+        {
+            this.BleedToDeath();
+        }
+
+        public override void Defend()
+        {
+            this.Survival();
+        }
+
+        private void Raze() { }
+        private void BleedToDeath() { }
+        private void Survival() { }
     }
 }
