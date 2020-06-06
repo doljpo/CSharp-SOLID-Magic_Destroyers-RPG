@@ -2,7 +2,7 @@
 
 namespace MagicDestroyers
 {
-    class Program
+    class Arena
     {
         static void Main(string[] args)
         {
