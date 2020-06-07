@@ -1,6 +1,7 @@
 ﻿using Characters.Interfaces;
 using Enums;
 using System;
+using Utils;
 
 namespace Characters
 {
@@ -95,7 +96,7 @@ namespace Characters
         public abstract int SpecialAttack();
         public abstract int Defend();
 
-        public void TakeDamage(int damage, string attackerName)
+        public void TakeDamage(int damage, string attackerName, string type)
         {
             if (this.Defend() < damage)
             {
@@ -113,11 +114,11 @@ namespace Characters
 
             if (!this.isAlive)
             {
-                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, and is now dead!");
+                Colors.TypeSpecificColorfulCW($"{this.name} received {damage} damage from {attackerName}, and is now dead!", type);
             }
             else
             {
-                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, and is now has {this.healthPoints} healthPoints");
+                Colors.TypeSpecificColorfulCW($"{this.name} received {damage} damage from {attackerName}, and now has {this.healthPoints} healthpoints!", type);
             }
         }
 

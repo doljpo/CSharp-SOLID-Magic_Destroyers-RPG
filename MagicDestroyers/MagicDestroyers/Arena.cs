@@ -3,6 +3,7 @@ using Characters.Melee;
 using Characters.Spellcasters;
 using System;
 using System.Collections.Generic;
+using Utils;
 
 namespace MagicDestroyers
 {
@@ -35,7 +36,7 @@ namespace MagicDestroyers
 
             while (!gameOver)
             {
-                spellcastersTeam[currentSpellcaster].TakeDamage(meleeTeam[currentMelee].Attack(), meleeTeam[currentMelee].Name);
+                spellcastersTeam[currentSpellcaster].TakeDamage(meleeTeam[currentMelee].Attack(), meleeTeam[currentMelee].Name, meleeTeam[currentMelee].GetType().ToString());
 
                 if (!spellcastersTeam[currentSpellcaster].IsAlive)
                 {
@@ -44,7 +45,7 @@ namespace MagicDestroyers
 
                     if (spellcastersTeam.Count == 0)
                     {
-                        Console.WriteLine("Melee team wins!");
+                        Colors.ColorfulWriteLine("\nMelee team wins!", ConsoleColor.Red);                        
                         break;
                     }
                     else
@@ -53,7 +54,7 @@ namespace MagicDestroyers
                     }
                 }
 
-                meleeTeam[currentMelee].TakeDamage(spellcastersTeam[currentSpellcaster].Attack(), spellcastersTeam[currentSpellcaster].Name);
+                meleeTeam[currentMelee].TakeDamage(spellcastersTeam[currentSpellcaster].Attack(), spellcastersTeam[currentSpellcaster].Name, spellcastersTeam[currentSpellcaster].GetType().ToString());
 
                 if (!meleeTeam[currentMelee].IsAlive)
                 {
@@ -62,7 +63,7 @@ namespace MagicDestroyers
 
                     if (meleeTeam.Count == 0)
                     {
-                        Console.WriteLine("Spellcasters team wins!");
+                        Colors.ColorfulWriteLine("\nSpell team wins!", ConsoleColor.Red);
                         break;
                     }
                     else
