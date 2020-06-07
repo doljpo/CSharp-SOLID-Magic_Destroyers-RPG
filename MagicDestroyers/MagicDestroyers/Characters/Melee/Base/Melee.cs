@@ -45,19 +45,19 @@ namespace Characters.Melee
             this.AbilityPoints = abilityPoints;
         }
 
-        public override void Attack()
+        public override int Attack()
         {
             throw new NotImplementedException();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
             throw new NotImplementedException();
         }
 
-        public override void Defend()
+        public override int Defend()
         {
-            throw new NotImplementedException();
+            return this.Armor.ArmorPoints;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Equipment.Armors.Cloth;
 using Equipment.Weapons.Blunt;
+using System;
 
 namespace Characters.Spellcasters
 {
@@ -27,24 +28,27 @@ namespace Characters.Spellcasters
             base.Weapon = new Staff();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.ArcaneWrath();
+            return this.ArcaneWrath();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.Firewall();
+            return this.Firewall();
         }
-
-        public override void Defend()
+        
+        private int ArcaneWrath()
         {
-            this.Meditation();
+            return this.Weapon.Damage + 5;
         }
-
-        private void ArcaneWrath() { }
-        private void Firewall() { }
-        private void Meditation() { }
-
+        private int Firewall()
+        {
+            return this.Weapon.Damage + 10;
+        }
+        private int Meditation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,12 +4,14 @@ using System;
 
 namespace Characters
 {
-    public abstract class Character: IAttacking, IDefending
+    public abstract class Character : IAttacking, IDefending
     {
         private int level;
         private int healthPoints;
+        private int scores;
         private string name;
         private Faction faction;
+        private bool isAlive;
 
         public int Level
         {
@@ -41,6 +43,11 @@ namespace Characters
                 }
             }
         }
+        public int Scores
+        {
+            get => this.scores;
+            private set => this.scores = value;
+        }
         public string Name
         {
             get => this.name;
@@ -65,6 +72,11 @@ namespace Characters
             get => this.faction;
             set => this.faction = value;
         }
+        public bool IsAlive
+        {
+            get => this.isAlive;
+            private set => this.isAlive = value;
+        }
 
         public Character()
         { }
@@ -75,10 +87,49 @@ namespace Characters
             this.Level = level;
             this.HealthPoints = healthPoints;
             this.Faction = faction;
+            this.IsAlive = true;
+            this.Scores = 0;
         }
 
-        public abstract void Attack();
-        public abstract void SpecialAttack();
-        public abstract void Defend();
+        public abstract int Attack();
+        public abstract int SpecialAttack();
+        public abstract int Defend();
+
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if (this.Defend() < damage)
+            {
+                this.healthPoints -= damage + this.Defend();
+
+                if (this.healthPoints <= 0)
+                {
+                    this.isAlive = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not enough damage...");
+            }
+
+            if (!this.isAlive)
+            {
+                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, and is now dead!");
+            }
+            else
+            {
+                Console.WriteLine($"{this.name} received {damage} damage from {attackerName}, and is now has {this.healthPoints} healthPoints");
+            }
+        }
+
+        public void WonBattle()
+        {
+            this.scores++;
+
+            if (this.scores % 10 == 0)
+            {
+                this.level++;
+            }
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Equipment.Armors.Light;
 using Equipment.Weapons.Blunt;
+using System;
 
 namespace Characters.Spellcasters
 {
@@ -27,23 +28,27 @@ namespace Characters.Spellcasters
             base.Weapon = new Staff();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.Moonfire();
+            return this.Moonfire();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.Starburst();
+            return this.Starburst();
         }
-
-        public override void Defend()
+        
+        private int Moonfire()
         {
-            this.OneWithTheNature();
+            return this.Weapon.Damage + 5;
         }
-
-        private void Moonfire() { }
-        private void Starburst() { }
-        private void OneWithTheNature() { }
+        private int Starburst()
+        {
+            return this.Weapon.Damage + 10;
+        }
+        private int OneWithTheNature()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

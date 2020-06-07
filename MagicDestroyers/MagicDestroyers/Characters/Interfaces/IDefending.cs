@@ -2,6 +2,6 @@
 {
     public interface IDefending
     {
-        void Defend();
+        int Defend();
     }
 }

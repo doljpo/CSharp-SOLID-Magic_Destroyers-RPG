@@ -1,5 +1,6 @@
 ﻿using Equipment.Armors.Light;
 using Equipment.Weapons.Sharp;
+using System;
 
 namespace Characters.Spellcasters
 {
@@ -27,26 +28,27 @@ namespace Characters.Spellcasters
             base.Weapon = new Sword();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.ShadowRage();
+            return this.ShadowRage();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.VampireTouch();
+            return this.VampireTouch();
         }
 
-        public override void Defend()
+        private int ShadowRage()
         {
-            this.BoneShield();
+            return this.Weapon.Damage + 5;
         }
-
-        private void ShadowRage()
+        private int VampireTouch()
         {
-            System.Console.WriteLine("Shadow Rage!!");
+            return this.Weapon.Damage + 10;
         }
-        private void VampireTouch() { }
-        private void BoneShield() { }
+        private int BoneShield()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

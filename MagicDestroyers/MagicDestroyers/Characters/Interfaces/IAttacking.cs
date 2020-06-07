@@ -2,7 +2,7 @@
 {
     public interface IAttacking
     {
-        void Attack();
-        void SpecialAttack();
+        int Attack();
+        int SpecialAttack();
     }
 }

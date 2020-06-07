@@ -1,6 +1,7 @@
 ﻿using Characters;
 using Characters.Melee;
 using Characters.Spellcasters;
+using System;
 using System.Collections.Generic;
 
 namespace MagicDestroyers
@@ -9,6 +10,10 @@ namespace MagicDestroyers
     {
         static void Main(string[] args)
         {
+            var rng = new Random();
+            var currentMelee = 0;
+            var currentSpellcaster = 0;
+            var gameOver = false;
             var meleeTeam = new List<Melee>();
             var spellcastersTeam = new List<Spellcaster>();
 
@@ -24,19 +29,46 @@ namespace MagicDestroyers
                 }
             }
 
-            System.Console.WriteLine("Melee Team");
-            System.Console.WriteLine("----------");
-            foreach (var melee in meleeTeam)
-            {
-                System.Console.WriteLine(" > " + melee.Name);
-            }
+            currentMelee = rng.Next(0, meleeTeam.Count);
+            currentSpellcaster = rng.Next(0, spellcastersTeam.Count);
 
-            System.Console.WriteLine("");
-            System.Console.WriteLine("Spellcasters Team");
-            System.Console.WriteLine("-----------------");
-            foreach (var spellcaster in spellcastersTeam)
+            while (!gameOver)
             {
-                System.Console.WriteLine(" > " + spellcaster.Name);
+                spellcastersTeam[currentSpellcaster].TakeDamage(meleeTeam[currentMelee].Attack(), meleeTeam[currentMelee].Name);
+
+                if (!spellcastersTeam[currentSpellcaster].IsAlive)
+                {
+                    meleeTeam[currentMelee].WonBattle();
+                    spellcastersTeam.Remove(spellcastersTeam[currentSpellcaster]);
+
+                    if (spellcastersTeam.Count == 0)
+                    {
+                        Console.WriteLine("Melee team wins!");
+                        break;
+                    }
+                    else
+                    {
+                        currentSpellcaster = rng.Next(0, spellcastersTeam.Count);
+                    }
+                }
+
+                meleeTeam[currentMelee].TakeDamage(spellcastersTeam[currentSpellcaster].Attack(), spellcastersTeam[currentSpellcaster].Name);
+
+                if (!meleeTeam[currentMelee].IsAlive)
+                {
+                    spellcastersTeam[currentSpellcaster].WonBattle();
+                    meleeTeam.Remove(meleeTeam[currentMelee]);
+
+                    if (meleeTeam.Count == 0)
+                    {
+                        Console.WriteLine("Spellcasters team wins!");
+                        break;
+                    }
+                    else
+                    {
+                        currentMelee = rng.Next(0, meleeTeam.Count);
+                    }
+                }
             }
 
             System.Console.ReadKey();

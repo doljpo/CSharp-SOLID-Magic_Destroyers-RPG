@@ -1,5 +1,6 @@
 ﻿using Equipment.Armors.Heavy;
 using Equipment.Weapons.Sharp;
+using System;
 
 namespace Characters.Melee
 {
@@ -27,23 +28,27 @@ namespace Characters.Melee
             base.Weapon = new Axe();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.Strike();
+            return this.Strike();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.Execute();
+            return this.Execute();
         }
 
-        public override void Defend()
+        private int Strike()
         {
-            this.SkinHarden();
+            return this.Weapon.Damage + 5;
         }
-
-        private void Strike() { }
-        private void Execute() { }
-        private void SkinHarden() { }
+        private int Execute()
+        {
+            return this.Weapon.Damage + 10;
+        }
+        private int SkinHarden()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

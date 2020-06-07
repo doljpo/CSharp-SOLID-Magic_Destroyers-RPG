@@ -1,5 +1,6 @@
 ﻿using Equipment.Armors.Light;
 using Equipment.Weapons.Sharp;
+using System;
 
 namespace Characters.Melee
 {
@@ -27,23 +28,27 @@ namespace Characters.Melee
             base.Weapon = new Sword();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.Raze();
+            return this.Raze();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.BleedToDeath();
+            return this.BleedToDeath();
         }
 
-        public override void Defend()
+        private int Raze()
         {
-            this.Survival();
+            return this.Weapon.Damage + 5;
         }
-
-        private void Raze() { }
-        private void BleedToDeath() { }
-        private void Survival() { }
+        private int BleedToDeath()
+        {
+            return this.Weapon.Damage + 10;
+        }
+        private int Survival()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

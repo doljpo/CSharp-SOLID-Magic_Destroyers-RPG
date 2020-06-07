@@ -1,6 +1,7 @@
 ﻿using Equipment.Armors;
 using Equipment.Armors.Heavy;
 using Equipment.Weapons.Blunt;
+using System;
 
 namespace Characters.Melee
 {
@@ -28,23 +29,27 @@ namespace Characters.Melee
             base.Weapon = new Hammer();
         }
 
-        public override void Attack()
+        public override int Attack()
         {
-            this.HolyBlow();
+            return this.HolyBlow();
         }
 
-        public override void SpecialAttack()
+        public override int SpecialAttack()
         {
-            this.PurifySoul();
+            return this.PurifySoul();
         }
 
-        public override void Defend()
+        private int HolyBlow()
         {
-            this.RighteousWings();
+            return this.Weapon.Damage + 5;
         }
-
-        private void HolyBlow() { }
-        private void PurifySoul() { }
-        private void RighteousWings() { }
+        private int PurifySoul()
+        {
+            return this.Weapon.Damage + 10;
+        }
+        private int RighteousWings()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
