@@ -1,28 +1,24 @@
 ﻿using Equipment.Armors.Heavy;
 using Equipment.Weapons.Sharp;
 using System;
+using Utils;
 
 namespace Characters.Melee
 {
     public class Warrior : Melee
     {
-        private const string DEFAULT_NAME = "Brave Warrior";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 500;
-        private const int DEFAULT_ABILITY_POINTS = 100;
-
         public Warrior()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Warrior.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
         {
         }
 
         public Warrior(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
         {
         }
 
         public Warrior(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, DEFAULT_ABILITY_POINTS)
+            : base(name, level, healthPoints, Consts.DEFAULT_ABILITY_POINTS)
         {
             base.Armor = new Chainlink();
             base.Weapon = new Axe();
@@ -30,21 +26,21 @@ namespace Characters.Melee
 
         public override int Attack()
         {
-            return this.Strike();
+            return this.Weapon.Damage + this.Strike();
         }
 
         public override int SpecialAttack()
         {
-            return this.Execute();
+            return this.Weapon.Damage + this.Execute();
         }
 
         private int Strike()
         {
-            return this.Weapon.Damage + 5;
+            return Consts.DEFAULT_BASIC_ATTACK;
         }
         private int Execute()
         {
-            return this.Weapon.Damage + 10;
+            return Consts.DEFAULT_SPECIAL_ATTACK;
         }
         private int SkinHarden()
         {

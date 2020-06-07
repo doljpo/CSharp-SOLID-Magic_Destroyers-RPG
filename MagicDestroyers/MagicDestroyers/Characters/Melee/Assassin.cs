@@ -1,28 +1,24 @@
 ﻿using Equipment.Armors.Light;
 using Equipment.Weapons.Sharp;
 using System;
+using Utils;
 
 namespace Characters.Melee
 {
     public class Assassin : Melee
     {
-        private const string DEFAULT_NAME = "Dark Ninja";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 500;
-        private const int DEFAULT_ABILITY_POINTS = 100;
-
         public Assassin()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Assassin.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
         {
         }
 
         public Assassin(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
         {
         }
 
         public Assassin(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, DEFAULT_ABILITY_POINTS)
+            : base(name, level, healthPoints, Consts.DEFAULT_ABILITY_POINTS)
         {
             base.Armor = new LightLeatherVest();
             base.Weapon = new Sword();
@@ -30,21 +26,21 @@ namespace Characters.Melee
 
         public override int Attack()
         {
-            return this.Raze();
+            return this.Weapon.Damage + this.Raze();
         }
 
         public override int SpecialAttack()
         {
-            return this.BleedToDeath();
+            return this.Weapon.Damage + this.BleedToDeath();
         }
 
         private int Raze()
         {
-            return this.Weapon.Damage + 5;
+            return Consts.DEFAULT_BASIC_ATTACK;
         }
         private int BleedToDeath()
         {
-            return this.Weapon.Damage + 10;
+            return Consts.DEFAULT_SPECIAL_ATTACK;
         }
         private int Survival()
         {

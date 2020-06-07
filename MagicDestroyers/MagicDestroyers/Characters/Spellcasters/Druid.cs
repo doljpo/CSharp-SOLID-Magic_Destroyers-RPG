@@ -1,28 +1,24 @@
 ﻿using Equipment.Armors.Light;
 using Equipment.Weapons.Blunt;
 using System;
+using Utils;
 
 namespace Characters.Spellcasters
 {
     public class Druid : Spellcaster
     {
-        private const string DEFAULT_NAME = "Wise Druid";
-        private const int DEFAULT_LEVEL = 1;
-        private const int DEFAULT_HEALTH_POINTS = 500;
-        private const int DEFAULT_MANA_POINTS = 100;
-
         public Druid()
-            : this(DEFAULT_NAME, DEFAULT_LEVEL)
+            : this(Consts.Druid.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
         {
         }
 
         public Druid(string name, int level)
-            : this(name, level, DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
         {
         }
 
         public Druid(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, DEFAULT_MANA_POINTS)
+            : base(name, level, healthPoints, Consts.DEFAULT_MANA_POINTS)
         {
             base.Armor = new LightLeatherVest();
             base.Weapon = new Staff();
@@ -30,21 +26,21 @@ namespace Characters.Spellcasters
 
         public override int Attack()
         {
-            return this.Moonfire();
+            return this.Weapon.Damage + this.Moonfire();
         }
 
         public override int SpecialAttack()
         {
-            return this.Starburst();
+            return this.Weapon.Damage + this.Starburst();
         }
         
         private int Moonfire()
         {
-            return this.Weapon.Damage + 5;
+            return Consts.DEFAULT_BASIC_ATTACK;
         }
         private int Starburst()
         {
-            return this.Weapon.Damage + 10;
+            return Consts.DEFAULT_SPECIAL_ATTACK;
         }
         private int OneWithTheNature()
         {

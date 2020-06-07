@@ -7,8 +7,6 @@ namespace Characters.Melee
 {
     public class Melee : Character
     {
-        private const int DEFAULT_ABILITY_POINTS = 100;
-
         private int abilityPoints;
         private Armor armor;
         private Weapon weapon;
