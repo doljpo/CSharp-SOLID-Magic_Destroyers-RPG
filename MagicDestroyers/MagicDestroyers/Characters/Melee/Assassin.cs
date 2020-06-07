@@ -8,17 +8,17 @@ namespace Characters.Melee
     public class Assassin : Melee
     {
         public Assassin()
-            : this(Consts.Assassin.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
+            : this(Consts.Assassin.NAME, Consts.LEVEL)
         {
         }
 
         public Assassin(string name, int level)
-            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.HEALTH_POINTS)
         {
         }
 
         public Assassin(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, Consts.DEFAULT_ABILITY_POINTS)
+            : base(name, level, healthPoints, Consts.ABILITY_POINTS)
         {
             base.Armor = new LightLeatherVest();
             base.Weapon = new Sword();
@@ -36,11 +36,11 @@ namespace Characters.Melee
 
         private int Raze()
         {
-            return Consts.DEFAULT_BASIC_ATTACK;
+            return Consts.BASIC_ATTACK;
         }
         private int BleedToDeath()
         {
-            return Consts.DEFAULT_SPECIAL_ATTACK;
+            return Consts.SPECIAL_ATTACK;
         }
         private int Survival()
         {

@@ -9,17 +9,17 @@ namespace Characters.Melee
     public class Knight : Melee
     {
         public Knight()
-            : this(Consts.Knight.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
+            : this(Consts.Knight.NAME, Consts.LEVEL)
         {
         }
 
         public Knight(string name, int level)
-            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.HEALTH_POINTS)
         {
         }
 
         public Knight(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, Consts.DEFAULT_ABILITY_POINTS)
+            : base(name, level, healthPoints, Consts.ABILITY_POINTS)
         {
             base.Armor = new Chainlink();
             base.Weapon = new Hammer();
@@ -37,11 +37,11 @@ namespace Characters.Melee
 
         private int HolyBlow()
         {
-            return Consts.DEFAULT_BASIC_ATTACK;
+            return Consts.BASIC_ATTACK;
         }
         private int PurifySoul()
         {
-            return Consts.DEFAULT_SPECIAL_ATTACK;
+            return Consts.SPECIAL_ATTACK;
         }
         private int RighteousWings()
         {

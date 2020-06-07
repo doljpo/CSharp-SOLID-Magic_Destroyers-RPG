@@ -8,17 +8,17 @@ namespace Characters.Melee
     public class Warrior : Melee
     {
         public Warrior()
-            : this(Consts.Warrior.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
+            : this(Consts.Warrior.NAME, Consts.LEVEL)
         {
         }
 
         public Warrior(string name, int level)
-            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.HEALTH_POINTS)
         {
         }
 
         public Warrior(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, Consts.DEFAULT_ABILITY_POINTS)
+            : base(name, level, healthPoints, Consts.ABILITY_POINTS)
         {
             base.Armor = new Chainlink();
             base.Weapon = new Axe();
@@ -36,11 +36,11 @@ namespace Characters.Melee
 
         private int Strike()
         {
-            return Consts.DEFAULT_BASIC_ATTACK;
+            return Consts.BASIC_ATTACK;
         }
         private int Execute()
         {
-            return Consts.DEFAULT_SPECIAL_ATTACK;
+            return Consts.SPECIAL_ATTACK;
         }
         private int SkinHarden()
         {

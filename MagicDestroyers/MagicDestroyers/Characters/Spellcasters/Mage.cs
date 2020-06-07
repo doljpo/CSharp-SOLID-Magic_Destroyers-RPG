@@ -8,17 +8,17 @@ namespace Characters.Spellcasters
     public class Mage : Spellcaster
     {
         public Mage()
-            : this(Consts.Mage.DEFAULT_NAME, Consts.DEFAULT_LEVEL)
+            : this(Consts.Mage.NAME, Consts.LEVEL)
         {
         }
 
         public Mage(string name, int level)
-            : this(name, level, Consts.DEFAULT_HEALTH_POINTS)
+            : this(name, level, Consts.HEALTH_POINTS)
         {
         }
 
         public Mage(string name, int level, int healthPoints)
-            : base(name, level, healthPoints, Consts.DEFAULT_MANA_POINTS)
+            : base(name, level, healthPoints, Consts.MANA_POINTS)
         {            
             base.Armor = new ClothRobe();
             base.Weapon = new Staff();
@@ -36,11 +36,11 @@ namespace Characters.Spellcasters
         
         private int ArcaneWrath()
         {
-            return Consts.DEFAULT_BASIC_ATTACK;
+            return Consts.BASIC_ATTACK;
         }
         private int Firewall()
         {
-            return Consts.DEFAULT_SPECIAL_ATTACK;
+            return Consts.SPECIAL_ATTACK;
         }
         private int Meditation()
         {
