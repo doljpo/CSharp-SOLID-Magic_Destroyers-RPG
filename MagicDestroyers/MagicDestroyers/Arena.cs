@@ -16,9 +16,10 @@ namespace MagicDestroyers
             var gameOver = false;
             var meleeTeam = new List<Melee>();
             var spellcastersTeam = new List<Spellcaster>();
+            var characters = GetCharacters();
 
-            foreach (var character in GetCharacters())
-            {                
+            foreach (var character in characters)
+            {
                 if (character is Melee)
                 {
                     meleeTeam.Add((Melee)character);
