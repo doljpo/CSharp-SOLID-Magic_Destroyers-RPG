@@ -2,7 +2,7 @@
 {
     public class Staff : Blunt
     {
-        private const int DEFAULT_DAMAGE = 10;
+        private const int DEFAULT_DAMAGE = 2;
         public Staff()
             : this(DEFAULT_DAMAGE)
         { }

@@ -2,7 +2,7 @@
 {
     public class Hammer : Blunt
     {
-        private const int DEFAULT_DAMAGE = 10;
+        private const int DEFAULT_DAMAGE = 4;
 
         public Hammer()
             : this(DEFAULT_DAMAGE)

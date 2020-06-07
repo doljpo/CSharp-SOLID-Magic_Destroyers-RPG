@@ -2,7 +2,7 @@
 {
     public class Chainlink : Heavy
     {
-        private const int DEFAULT_ARMOR_POINTS = 10;
+        private const int DEFAULT_ARMOR_POINTS = 3;
 
         public Chainlink()
             : this(DEFAULT_ARMOR_POINTS)

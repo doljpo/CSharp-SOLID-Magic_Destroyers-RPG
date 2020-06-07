@@ -2,7 +2,7 @@
 {
     public class ClothRobe : Cloth
     {
-        private const int DEFAULT_ARMOR_POINTS = 10;
+        private const int DEFAULT_ARMOR_POINTS = 1;
 
         public ClothRobe()
             : this(DEFAULT_ARMOR_POINTS)

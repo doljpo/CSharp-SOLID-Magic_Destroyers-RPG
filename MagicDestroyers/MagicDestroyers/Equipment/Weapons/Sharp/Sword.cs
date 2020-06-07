@@ -2,7 +2,7 @@
 {
     public class Sword : Sharp
     {
-        private const int DEFAULT_DAMAGE = 10;
+        private const int DEFAULT_DAMAGE = 2;
         public Sword()
             : this(DEFAULT_DAMAGE)
         { }
