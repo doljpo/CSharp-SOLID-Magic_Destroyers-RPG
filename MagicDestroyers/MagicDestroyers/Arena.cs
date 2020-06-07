@@ -12,14 +12,13 @@ namespace MagicDestroyers
         static void Main(string[] args)
         {
             var rng = new Random();
-            var currentMelee = 0;
-            var currentSpellcaster = 0;
-            var gameOver = false;
             var meleeTeam = new List<Melee>();
-            var spellcastersTeam = new List<Spellcaster>();
-            var characters = GetCharacters();
+            var spellTeam = new List<Spellcaster>();
 
-            foreach (var character in characters)
+            Melee melee;
+            Spellcaster caster;
+
+            foreach (var character in GetCharacters())
             {
                 if (character is Melee)
                 {
@@ -27,53 +26,80 @@ namespace MagicDestroyers
                 }
                 else
                 {
-                    spellcastersTeam.Add((Spellcaster)character);
+                    spellTeam.Add((Spellcaster)character);
                 }
             }
 
-            currentMelee = rng.Next(0, meleeTeam.Count);
-            currentSpellcaster = rng.Next(0, spellcastersTeam.Count);
-
-            while (!gameOver)
+            while (true)
             {
-                spellcastersTeam[currentSpellcaster].TakeDamage(meleeTeam[currentMelee].Attack(), meleeTeam[currentMelee].Name, meleeTeam[currentMelee].GetType().ToString());
+                GetFighters(rng, meleeTeam, spellTeam, out melee, out caster);
 
-                if (!spellcastersTeam[currentSpellcaster].IsAlive)
+                MeleeAttacks(melee, caster);
+
+                if (!caster.IsAlive)
                 {
-                    meleeTeam[currentMelee].WonBattle();
-                    spellcastersTeam.Remove(spellcastersTeam[currentSpellcaster]);
+                    melee.WonBattle();
+                    spellTeam.Remove(caster);
 
-                    if (spellcastersTeam.Count == 0)
+                    if (IsTeamDefeated(spellTeam.Count))
                     {
-                        Colors.ColorfulWriteLine("\nMelee team wins!", ConsoleColor.Red);                        
+                        AnnounceVictory("Melee");
                         break;
-                    }
-                    else
-                    {
-                        currentSpellcaster = rng.Next(0, spellcastersTeam.Count);
                     }
                 }
 
-                meleeTeam[currentMelee].TakeDamage(spellcastersTeam[currentSpellcaster].Attack(), spellcastersTeam[currentSpellcaster].Name, spellcastersTeam[currentSpellcaster].GetType().ToString());
+                CasterAttacks(caster, melee);
 
-                if (!meleeTeam[currentMelee].IsAlive)
+                if (!melee.IsAlive)
                 {
-                    spellcastersTeam[currentSpellcaster].WonBattle();
-                    meleeTeam.Remove(meleeTeam[currentMelee]);
+                    caster.WonBattle();
+                    meleeTeam.Remove(melee);
 
-                    if (meleeTeam.Count == 0)
+                    if (IsTeamDefeated(meleeTeam.Count))
                     {
-                        Colors.ColorfulWriteLine("\nSpell team wins!", ConsoleColor.Red);
+                        AnnounceVictory("Spell");
                         break;
-                    }
-                    else
-                    {
-                        currentMelee = rng.Next(0, meleeTeam.Count);
                     }
                 }
             }
 
             System.Console.ReadKey();
+        }
+
+        private static void GetFighters(Random rng, List<Melee> meleeTeam, List<Spellcaster> spellTeam, out Melee melee, out Spellcaster caster)
+        {
+            melee = GetMelee(meleeTeam, rng);
+            caster = GetCaster(spellTeam, rng);
+        }
+
+        private static void CasterAttacks(Spellcaster caster, Melee fighter)
+        {
+            fighter.TakeDamage(caster.Attack(), caster.Name, caster.GetType().ToString());
+        }
+
+        private static void MeleeAttacks(Melee fighter, Spellcaster caster)
+        {
+            caster.TakeDamage(fighter.Attack(), fighter.Name, fighter.GetType().ToString());
+        }
+
+        private static bool IsTeamDefeated(int count)
+        {
+            return count == 0;
+        }
+
+        private static void AnnounceVictory(string team)
+        {
+            Colors.ColorfulWriteLine($"\n{team} team wins!", ConsoleColor.Red);
+        }
+        
+        private static Melee GetMelee(List<Melee> meleeTeam, Random rng)
+        {
+            return meleeTeam[rng.Next(0, meleeTeam.Count)];
+        }
+
+        private static Spellcaster GetCaster(List<Spellcaster> spellcasterTeam, Random rng)
+        {
+            return spellcasterTeam[rng.Next(0, spellcasterTeam.Count)];
         }
 
         private static List<Character> GetCharacters()
